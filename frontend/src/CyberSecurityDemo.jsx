@@ -40,33 +40,76 @@ export default function CyberSecurityDemo() {
     };
     return (
         <div className="flex flex-col items-center p-6">
-            <h1 className="text-2xl font-bold">Cybersecurity Principles Demo</h1>
+
 
             <Card>
                 <CardContent>
-                    <h2 className="text-lg font-semibold">Confidentiality</h2>
-                    <Input value={text} onChange={(e) => setText(e.target.value)} placeholder="Enter text" />
-                    <Button onClick={handleEncode}>Encode</Button>
-                    <p>Encoded: {encoded}</p>
-                    <Button onClick={handleDecode}>Decode</Button>
-                    <p>Decoded: {decoded}</p>
+                    <div className="w3-twothird">
+                        <h1 className="text-lg font-semibold">Confidentiality</h1>
+                        <h5 className="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+                    </div>
+                    <div className="w3-third w3-center w3-padding-64 w3-text-red">
+
+                        <Input value={text} onChange={(e) => setText(e.target.value)} placeholder="Enter text"/>
+                        <Button onClick={handleEncode}>Encode</Button>
+                        <p>Encoded: {encoded}</p>
+                        <Button onClick={handleDecode}>Decode</Button>
+                        <p>Decoded: {decoded}</p></div>
+
+
+
                 </CardContent>
             </Card>
 
-            <Card>
-                <CardContent>
-                    <h2 className="text-lg font-semibold">Integrity</h2>
-                    <Button onClick={handleHash}>Generate Hash</Button>
-                    <p>Hash: {hash}</p>
-                </CardContent>
-            </Card>
+
+
+                    <Card>
+                        <CardContent>
+                            <div className="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+                                <div className="w3-content">
+                                    <div className="w3-third">
+                                        <div className="w3-padding-64 w3-text-red w3-margin-right">
+                                            <Button onClick={handleHash}>Generate Hash</Button>
+                                            {/* The hash-text class is added here */}
+                                            <div>
+                                                <p className="w3-wrap hash-text">Hash: {hash}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="w3-twothird">
+                                        <h1>Integrity</h1>
+                                        <h5 className="w3-padding-32">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                            commodo consequat.
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </CardContent>
+                    </Card>
 
             <Card>
                 <CardContent>
-                    <h2 className="text-lg font-semibold">Availability</h2>
-                    <Button onClick={handleDoSRequest}>Send Request</Button>
-                    <p>Requests Sent: {requestCount}</p>
-                    {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+                    <div className="w3-twothird">
+                        <h1 className="text-lg font-semibold">Availibility</h1>
+                        <h5 className="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
+                    </div>
+                    <div className="w3-third w3-center  w3-padding-64 w3-text-red">
+                        <Button onClick={handleDoSRequest}>Send Request</Button>
+                        <p>Requests Sent: {requestCount}</p>
+                        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+
+                       </div>
+
+
                 </CardContent>
             </Card>
         </div>
