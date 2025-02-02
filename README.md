@@ -23,7 +23,7 @@ Availability: Limit requests to simulate DoS attacks (20 requests per 5 seconds)
 
 ## Tech Stack
 
-Frontend:
+### Frontend:
 
 React (Vite)
 
@@ -31,7 +31,7 @@ Axios
 
 TailwindCSS (Optional for styling)
 
-Backend:
+### Backend:
 
 Node.js
 
@@ -45,7 +45,7 @@ express-rate-limit (for DoS attack simulation)
 
 1. Clone the Repository
 
-git clone https://github.com/your-repo/cybersecurity-demo.git
+git clone https://github.com/nsavage176/CIA-App.git
 cd cybersecurity-demo
 
 2. Backend Setup
@@ -106,7 +106,7 @@ Implement user authentication.
 
 Add a database for request tracking.
 
-Enhance UI with animations.
+Enhance UI with animations and better styling.
 
 ## Contributors
  Nicole Savage - Developer
