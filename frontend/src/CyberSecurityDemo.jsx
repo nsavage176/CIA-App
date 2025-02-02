@@ -12,6 +12,7 @@ export default function CyberSecurityDemo() {
     const [hash, setHash] = useState("");
     const [tampered, setTampered] = useState(false);
     const [requestCount, setRequestCount] = useState(0);
+    const [errorMessage, setErrorMessage] = useState(""); // ✅ Stores error messages
 
     const handleEncode = () => setEncoded(btoa(text));
     const handleDecode = async () => {
@@ -27,12 +28,16 @@ export default function CyberSecurityDemo() {
     const handleDoSRequest = async () => {
         try {
             const response = await axios.post("http://localhost:5000/dos");
-            setRequestCount(response.data.requestCount);
-        } catch {
-            alert("DoS simulation: Too many requests!");
+            setRequestCount(response.data.requestCount); // ✅ Update UI with request count
+            setErrorMessage(""); // ✅ Clear previous errors
+        } catch (error) {
+            if (error.response && error.response.status === 429) {
+                setErrorMessage("Too many requests! Try again in a few seconds.");
+            } else {
+                setErrorMessage("An error occurred. Please try again later.");
+            }
         }
     };
-
     return (
         <div className="flex flex-col items-center p-6">
             <h1 className="text-2xl font-bold">Cybersecurity Principles Demo</h1>
@@ -61,6 +66,7 @@ export default function CyberSecurityDemo() {
                     <h2 className="text-lg font-semibold">Availability</h2>
                     <Button onClick={handleDoSRequest}>Send Request</Button>
                     <p>Requests Sent: {requestCount}</p>
+                    {errorMessage && <p className="text-red-500">{errorMessage}</p>}
                 </CardContent>
             </Card>
         </div>
